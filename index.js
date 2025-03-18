@@ -37,5 +37,13 @@
        var listItem = document.createElement("li");
        listItem.appendChild(document.createTextNode(element.title)
     );
-       myList.appendChild(listItem);
+    var deleteLink = document.createElement("a");
+
+    deleteLink.href = "#";
+    deleteLink.className = "btn btn-sm btn-danger m-1 delete";
+    deleteLink.appendChild(
+        document.createTextNode("Delete")
+    );
+    listItem.appendChild(deleteLink);
+    myList.appendChild(listItem);
      });
