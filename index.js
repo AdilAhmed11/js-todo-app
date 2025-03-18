@@ -39,11 +39,22 @@
     );
     var deleteLink = document.createElement("a");
 
-    deleteLink.href = "#";
+    deleteLink.href = "#"; //Presses the button without opening a new page
     deleteLink.className = "btn btn-sm btn-danger m-1 delete";
     deleteLink.appendChild(
-        document.createTextNode("Delete")
+        document.createTextNode("Delete") //Adding delete text to the button
     );
     listItem.appendChild(deleteLink);
     myList.appendChild(listItem);
      });
+
+    var closeButtons = document.getElementsByClassName("delete"); //Grabs every delete button
+ 
+     for (var i = 0; i < closeButtons.length; i++) { //Loops through every delete button
+       closeButtons[i].addEventListener('click', deleteTodo, false); //Adds event listener to each button, and the deleteTodo function
+     }
+ 
+     function deleteTodo() {
+       var li = this.parentElement; //Grabs the parent list element (the text and delete button are children)
+       myList.removeChild(li);
+     }
