@@ -1,4 +1,9 @@
-    var json_data = [];
+    var json_data = [
+       {
+         "title": "sample todo item",
+         "completed": false
+       }
+     ];
 
     var myList = document.getElementById("todo-list");
  
