@@ -33,4 +33,6 @@
        listItem.appendChild(deleteLink);
        myList.appendChild(listItem);
        registerEventListeners();
+       console.log("new todo added");
+       console.log(listItem);
      }
