@@ -9,7 +9,9 @@ var myList = document.getElementById("todo-list");
 
 if (json_data) {
     json_data.forEach((element) => {
-        newTodo(element.title);
+        if (element) {
+            newTodo(element.title, element.id);
+        }
     });
 }
 registerEventListeners();
@@ -23,14 +25,19 @@ function registerEventListeners() {
 function deleteTodo() {
     var li = this.parentElement; //Grabs the parent list element (the text and delete button are children)
     myList.removeChild(li);
+    var json_temp = JSON.parse(localStorage.getItem("json_data"));
+    delete json_temp[li.dataset.id];
+    // how do we delete the item from json_temp without a unique identifier?
+    localStorage.setItem("json_data", JSON.stringify(json_temp));
 }
-function newTodo(todoTitle) {
-    if (!todoTitle) {
+function newTodo(todoTitle, todoID) {
+    if (!todoTitle && !todoID) {
         //If not empty then do this
         todoTitle = document.getElementById("todoTitle").value;
-        storeTodoLocal(todoTitle);
+        var todoID = storeTodoLocal(todoTitle);
     }
     var listItem = document.createElement("li");
+    listItem.dataset.id = todoID;
     listItem.appendChild(document.createTextNode(todoTitle));
     var deleteLink = document.createElement("a");
     deleteLink.href = "#";
@@ -48,11 +55,16 @@ function storeTodoLocal(todoTitle) {
     var json_temp = JSON.parse(localStorage.getItem("json_data")); //This retrieves the existing list of to-do items and parses it into JSON format (converts the JSON string into a JS array)
 
     if (!json_temp) {
+        //If json_temp is null, it initializes and empty array.
         json_temp = [];
     }
 
+    // creating a new todo ID based on length of existing localStorage array
+    var todoID = json_temp.length;
+
     // add new todo object to JSON
     json_temp.push({
+        id: todoID,
         title: todoTitle,
         completed: false,
     });
@@ -62,4 +74,7 @@ function storeTodoLocal(todoTitle) {
 
     // stringify updated JSON and store back in localStorage
     localStorage.setItem("json_data", JSON.stringify(json_temp));
+
+    // return ID of new todo
+    return todoID;
 }
