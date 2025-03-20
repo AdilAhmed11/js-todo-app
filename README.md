@@ -43,7 +43,7 @@
 
 -   Use Bootstrap for simple styling.
 
-## TypeScript
+## JavaScript
 
 The logic will need to handle:
 
@@ -66,21 +66,21 @@ The logic will need to handle:
 
 1.  HTML
 
--   [ ] Basic structure
--   [ ] Add an input field.
--   [ ] Add a button to add tasks.
--   [ ] Add an empty unordered list to store the li items.
+-   [x] Basic structure
+-   [x] Add an input field.
+-   [x] Add a button to add tasks.
+-   [x] Add an empty unordered list to store the li items.
 
 2.  CSS
 
--   [ ] Use Bootstrap for basic styling
+-   [x] Use Bootstrap for basic styling
 
 3.  TS
 
 ### Add Task Functionality
 
--   [ ] When button is clicked, the text from the input field should be added as a new task to the list.
--   [ ] Create a new list element and APPEND it to the unordered list.
+-   [x] When button is clicked, the text from the input field should be added as a new task to the list.
+-   [x] Create a new list element and APPEND it to the unordered list.
 
 ### Task Complete Functionality
 
@@ -89,10 +89,10 @@ The logic will need to handle:
 
 ### Delete Task Functionality
 
--   [ ] Button press to delete each task.
-    -   [ ] When clicked, remove the task from the list
+-   [x] Button press to delete each task.
+    -   [x] When clicked, remove the task from the list
 
 ### Save to localStorage for Persistence
 
--   [ ] localStorage to store the tasks.
-    -   [ ] On page load, check if any tasks are stored in localStorage, and if so, display them.
+-   [x] localStorage to store the tasks.
+    -   [x] On page load, check if any tasks are stored in localStorage, and if so, display them.
