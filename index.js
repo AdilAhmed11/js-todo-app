@@ -78,3 +78,8 @@ function storeTodoLocal(todoTitle) {
     // return ID of new todo
     return todoID;
 }
+
+function deleteAllTodos() {
+    localStorage.removeItem("json_data");
+    myList.innerHTML = "";
+}
